@@ -675,7 +675,7 @@ a.project-card:hover .project-link-hint {
 <!-- ─── NAV ─── -->
 <nav id="nav">
   <div class="container">
-    <a href="#" class="logo">Rohan<span>.</span></a>
+    <a href="#" class="logo">Rohan Chowdhury</a>
     <button class="hamburger" aria-label="Menu" onclick="document.querySelector('nav ul').classList.toggle('open')">
       <span></span><span></span><span></span>
     </button>
@@ -1081,4 +1081,14 @@ window.addEventListener('scroll', () => {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.reveal').forEach(el => observer.o
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll & close mobile menu
+document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+  a.addEventListener('click', () => {
+    document.querySelector('nav ul').classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
